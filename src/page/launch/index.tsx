@@ -1,0 +1,18 @@
+import React, { useState } from "react";
+import Input from "../../components/input";
+
+const Launch: React.FC = () => {
+  const [name, setName] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [wish, setWish] = useState<string>("");
+  return (
+    <>
+      这里是发布愿望
+      <Input defaultValue={name} setter={setName} />
+      <Input defaultValue={phoneNumber} setter={setPhoneNumber} />
+      <Input defaultValue={wish} setter={setWish} />
+    </>
+  );
+};
+
+export default Launch;
