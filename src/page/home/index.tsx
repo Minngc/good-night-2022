@@ -52,12 +52,15 @@ const Home: React.FC = () => {
               <img src={sendWish} alt="send wish" className="send-wish-button"></img>
             </Link>
             <Link to='/others'>
-              <img src={lookWish} alt="look wish" className="look-wish-button"></img>
+            <img src={lookWish} alt="look wish" className="look-wish-button"></img>
             </Link>
             <Link to='/about'>
-              <img src={about} alt="about" className="about-button"></img>
+            <img src={about} alt="about" className="about-button"></img>
             </Link>
+          </div>
+          <div className="info">
             <img src={sastLogo} alt="sast logo" className="sast-logo" ></img>
+            <div className="icp"><a href="https://www.beian.miit.gov.cn/" target="_blank" style={{ color: 'white' }}>苏ICP备2021038236号</a></div>
           </div>
         </div>
       </div>
