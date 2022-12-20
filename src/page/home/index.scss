@@ -1,0 +1,46 @@
+.page-body {
+  height: 100%;
+  background: url("../../assets/image/main-background.png");
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+}
+.logo-body {
+  display: flex;
+  justify-content: center;
+  .home-logo {
+    width: 70vw;
+    position: absolute;
+    top: 61px;
+  }
+}
+.entrance-body {
+  position: relative;
+  .send-wish-button {
+    position: absolute;
+    width: 75vw;
+    max-width: 293px;
+    top: 18vh;
+  }
+  .look-wish-button {
+    position: absolute;
+    width: 70vw;
+    top: 48vh;
+    max-width: 273px;
+    right: 0;
+  }
+  .about-button {
+    position: absolute;
+    width: 30vw;
+    bottom:-96vh;
+    max-width: 117px;
+    left: 10vw;
+  }
+  .sast-logo {
+    position: absolute;
+    width: 20vw;
+    top: 90vh;
+    right: 10vw;
+    max-width: 78px;
+  }
+}
