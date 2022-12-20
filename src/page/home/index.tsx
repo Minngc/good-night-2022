@@ -7,11 +7,15 @@ import lookWish from '../../assets/image/look-wish.png'
 import about from '../../assets/image/about.png'
 import sastLogo from '../../assets/image/sastlogo.png'
 import astronaut from '../../assets/image/spaceman.gif'
+import qrCode from '../../assets/image/qrcode.png'
+import { useQQLogin } from "../../hooks/qqlogin";
+import LoginCard from "../../components/LoginCard";
 
 const Home: React.FC = () => {
   const swiperGoTo = useRef();
   const footerRotio = useRef(0);
   const [notMobile, setNotMobile] = useState(false)
+  const [logined, qqtoken] = useQQLogin()
   function resizeView() {
     //@ts-ignore
     document.body.style.zoom = "normal"; //避免zoom尺寸叠加
@@ -34,16 +38,23 @@ const Home: React.FC = () => {
   }
   useEffect(() => {
     // resizeView()
-    if (window.screen.width > 500) {
+    if (window.innerWidth > 500) {
       setNotMobile(true)
-      console.log(notMobile)
+      // console.log(notMobile)
     }
+    // setTimeout(()=>{
+    //   const sonPage = document.getElementById('son')
+    //   console.log(sonPage)
+    //   if (sonPage !== null ) {
+    //     setNotMobile(false)
+    //   }
+    // },100)
   }, [window.screen.width, window.screen.height])
-
   return (
     !notMobile ?
       <div className="page-body">
         <div className="container">
+          {/* {logined ? <></> : <LoginCard></LoginCard>} */}
           <div className="logo-body">
             <img src={homeLogo} alt="logo" className="home-logo"></img>
           </div>
@@ -52,10 +63,10 @@ const Home: React.FC = () => {
               <img src={sendWish} alt="send wish" className="send-wish-button"></img>
             </Link>
             <Link to='/others'>
-            <img src={lookWish} alt="look wish" className="look-wish-button"></img>
+              <img src={lookWish} alt="look wish" className="look-wish-button"></img>
             </Link>
             <Link to='/about'>
-            <img src={about} alt="about" className="about-button"></img>
+              <img src={about} alt="about" className="about-button"></img>
             </Link>
           </div>
           <div className="info">
@@ -66,10 +77,15 @@ const Home: React.FC = () => {
       </div>
       :
       <div className="container" style={{ height: '100%', backgroundColor: '#1c1f18' }}>
-        <div style={{ height: '100%', display: 'flex', gap: '20px', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={astronaut} alt="image" width='300px'></img>
+        <div style={{ height: '100%', display: 'flex', gap: '20px', justifyContent: 'center', flexDirection: 'row', alignItems: 'center' }}>
+          {/* <img src={astronaut} alt="image" width='300px'></img>
           <h1 style={{ color: 'white' }}>哎呀，页面不见了</h1>
-          <h1 style={{ color: 'white' }}>请使用手机竖屏访问</h1>
+          <h1 style={{ color: 'white' }}>请使用手机竖屏访问</h1> */}
+          <iframe src="/" frameBorder="0" style={{ height: '844px', width: '380px' }} id='son'></iframe>
+          <div className="infoBox"style={{ height: '100%', display: 'flex', gap: '20px', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ color: 'white', fontSize: '2rem' }}>推荐使用手机访问</div>
+            <img src={qrCode} alt="qrcode" />
+          </div>
         </div>
       </div>
   );
