@@ -6,12 +6,19 @@ import Launch from "../page/launch";
 import LaunchSuccess from "../page/launch/launchSuccess";
 import Others from "../page/others";
 import LaunchEdit from "../page/launch/launchEdit";
+import FeishuRedirect from "../page/feishuRedirect";
+
 
 const user: RouteObject[] = [
   {
     id: "redirectToHome",
     path: "/",
     element: <Navigate to="/home" />,
+  },
+  {
+    id: "fsre",
+    path: "/fsre",
+    element: <FeishuRedirect />,
   },
   {
     id: "home",

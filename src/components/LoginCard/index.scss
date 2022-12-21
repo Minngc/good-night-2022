@@ -1,0 +1,86 @@
+.loginBox {
+  .container {
+    position: relative;
+    color: rgba(0, 0, 0, 0.822);
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    .penguin {
+      width: 50vw
+    }
+    button {
+        background: #FBCA1F;
+        font-family: inherit;
+        padding: 0.6em 1.3em;
+        font-weight: 900;
+        font-size: 18px;
+        border: 3px solid black;
+        border-radius: 0.4em;
+        box-shadow: 0.1em 0.1em;
+        width: 180px;
+        margin-top: 0px;
+        color: black;
+       }
+       
+       button:hover {
+        transform: translate(-0.05em, -0.05em);
+        box-shadow: black 0.15em 0.15em;
+       }
+       
+       button:active {
+        transform: translate(0.05em, 0.05em);
+        box-shadow: black 0.05em 0.05em;
+       }
+  }
+
+  .container .box {
+    position: absolute;
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
+    padding: 1rem;
+    bottom: -100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.842);
+    border: 1px solid rgba(255, 255, 255, 0.222);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    transition: all ease 0.3s;
+  }
+
+  .container .box .title {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  .container .box div strong {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .container .box div p {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+
+  .container .box div span {
+    font-size: 0.7rem;
+    font-weight: 300;
+  }
+
+  .container .box div span:nth-child(3) {
+    font-weight: 500;
+    margin-right: 0.2rem;
+  }
+
+  .container .box:hover {
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+    border: 1px solid rgba(255, 255, 255, 0.454);
+  }
+}
