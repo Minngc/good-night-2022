@@ -5,7 +5,9 @@ import NoMatch from "../page/error/noMatch";
 import Launch from "../page/launch";
 import LaunchSuccess from "../page/launch/launchSuccess";
 import Others from "../page/others";
+import LaunchEdit from "../page/launch/launchEdit";
 import FeishuRedirect from "../page/feishuRedirect";
+
 
 const user: RouteObject[] = [
   {
@@ -26,8 +28,13 @@ const user: RouteObject[] = [
   {
     id: "launch",
     path: "/launch",
-    element: <Launch />,
+    element: <Launch/>,
     children: [
+      {
+        id: "launch edit",
+        path: "edit",
+        element: <LaunchEdit />,
+      },
       {
         id: "launch success",
         path: "success",

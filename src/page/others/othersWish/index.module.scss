@@ -1,0 +1,53 @@
+.wishes {
+    position: absolute;
+    width: 76.5vw;
+    height: 38vh;
+    left: 4.6vw;
+    top: 4.3vh;
+
+    font-family: 'Smiley Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 5.3vw;
+    line-height: 7.2vw;
+    overflow-y: scroll;
+    /* or 30px */
+
+    color: #000000;
+}
+
+.name {
+    position: absolute;
+    width: 57vw;
+    height: 4.08vh;
+    left: 4.81vw;
+    top: 46.9vh;
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    font-family: 'Smiley Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 5.31vw;
+    line-height: 7.2vw;
+    /* or 30px */
+
+    color: #000000;
+}
+
+.time {
+    position: absolute;
+    width: 47vw;
+    height: 3vh;
+    left: 4.83vw;
+    top: 51.5vh;
+
+    font-family: 'Smiley Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3.86vw;
+    line-height: 5.31vw;
+    /* or 22px */
+
+    color: #000000;
+}
