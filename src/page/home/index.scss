@@ -4,6 +4,27 @@
   background-size: cover;
   background-position: center top;
   position: relative;
+  .function-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    .quit {
+      margin-right: 10px;
+    }
+  }
+  .welcome-info {
+    color: black;
+    margin-left: 10px;
+    left: 0;
+    right: 0;
+    font-size: 1rem;
+  }
 }
 .logo-body {
   display: flex;
@@ -32,17 +53,17 @@
   .about-button {
     position: absolute;
     width: 25vw;
-    bottom:-83vh;
+    bottom: -83vh;
     max-width: 117px;
     left: 10vw;
   }
 }
-.info{
+.info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 12px;
-  scale: .8;
+  padding-bottom: 42px;
+  scale: 0.8;
   opacity: 0.5;
   position: fixed;
   bottom: 0;

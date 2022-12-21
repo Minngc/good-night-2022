@@ -17,16 +17,19 @@
         border: 3px solid black;
         border-radius: 0.4em;
         box-shadow: 0.1em 0.1em;
+        width: 180px;
+        margin-top: 0px;
+        color: black;
        }
        
        button:hover {
         transform: translate(-0.05em, -0.05em);
-        box-shadow: 0.15em 0.15em;
+        box-shadow: black 0.15em 0.15em;
        }
        
        button:active {
         transform: translate(0.05em, 0.05em);
-        box-shadow: 0.05em 0.05em;
+        box-shadow: black 0.05em 0.05em;
        }
   }
 
