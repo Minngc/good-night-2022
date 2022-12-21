@@ -1,0 +1,26 @@
+.about-container {
+    position: absolute;
+    width: 80vw;
+    left: 10vw;
+    top: 212px;
+
+    font-family: 'PingFang SC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.9vw;
+    line-height: 6.5vw;
+    /* or 169% */
+
+    text-align: justify;
+    letter-spacing: 0.01em;
+
+    color: #FFFFFF;
+}
+
+.about-back-logo {
+    position: relative;
+    width: 18.4vw;
+    height: 18.4vw;
+    top: 800px;
+    left: 10vw;
+}

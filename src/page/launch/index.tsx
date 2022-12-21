@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import Input from "../../components/input";
+import React, { useEffect } from "react";
+// import useHistory from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Launch: React.FC = () => {
-  const [name, setName] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useState<string>("");
-  const [wish, setWish] = useState<string>("");
+  const navigate = useNavigate();
+  useEffect(() => {
+    // 如果存储发送状态的话此处可用三目选择具体跳转至何处
+    navigate("./edit",);
+  }, [navigate]);
   return (
-    <>
-      这里是发布愿望
-      <Input defaultValue={name} setter={setName} />
-      <Input defaultValue={phoneNumber} setter={setPhoneNumber} />
-      <Input defaultValue={wish} setter={setWish} />
+    <>123
+      <Outlet />
     </>
   );
 };
