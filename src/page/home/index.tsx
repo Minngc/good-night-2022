@@ -18,6 +18,7 @@ const Home: React.FC = () => {
   const footerRotio = useRef(0);
   const [screenWidth, setScreenWidth] = useState<number>(window.screen.width);
   const [screenHeight,setScreenHeight] = useState<number>(window.screen.height)
+  const [notMobile, setNotMobile] = useState(false);
   const [logined, uniID] = useLogin()
   const [nickname, location] = useUserInfo()
   // console.info('logined:',logined)
@@ -89,27 +90,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
-  ) : (
-    <div
-      className="container"
-      style={{ height: "100%", backgroundColor: "#1c1f18" }}
-    >
-      <div
-        style={{
-          height: "100%",
-          display: "flex",
-          gap: "20px",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <img src={astronaut} alt="astronaut" width="300px"></img>
-        <h1 style={{ color: "white" }}>哎呀，页面不见了</h1>
-        <h1 style={{ color: "white" }}>请使用手机竖屏访问</h1>
-      </div>
-    </div>
   );
 };
 
