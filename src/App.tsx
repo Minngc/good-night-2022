@@ -3,13 +3,13 @@ import React from "react";
 import "./App.scss";
 
 const App: React.FC = () => {
-  let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  let dom = document.getElementById("root");
-  if (dom !== null) {
-    dom.style.position = "fixed";
-    dom.style.top = "-" + scrollTop + "px";
-    dom.style.width = "calc(100%)";
-  }
+  // let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  // let dom = document.getElementById("root");
+  // if (dom !== null) {
+  //   dom.style.position = "fixed";
+  //   dom.style.top = "-" + scrollTop + "px";
+  //   dom.style.width = "calc(100%)";
+  // }
   // //加载完成后执行
   // $(window).on('load',function(){
   //   alert('finish')

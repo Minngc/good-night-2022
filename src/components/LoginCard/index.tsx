@@ -4,6 +4,7 @@ import penguin from '../../assets/image/penguin.gif'
 import qqloginbutton from '../../assets/image/qqlogin.png'
 function LoginCard(props: any) {
   const qqLogin = () => {
+    window.parent.location.href = 'https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=102035754&redirect_uri=https%3A%2F%2Fgoodnight2022.sast.fun%2Fqqre'
     window.location.href = 'https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=102035754&redirect_uri=https%3A%2F%2Fgoodnight2022.sast.fun%2Fqqloginredirect'
   }
   const feishuLogin = () => {

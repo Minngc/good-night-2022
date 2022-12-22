@@ -7,6 +7,7 @@ import LaunchSuccess from "../page/launch/launchSuccess";
 import Others from "../page/others";
 import LaunchEdit from "../page/launch/launchEdit";
 import FeishuRedirect from "../page/feishuRedirect";
+import QqRedirect from "../page/qqRedirect";
 
 
 const user: RouteObject[] = [
@@ -19,6 +20,11 @@ const user: RouteObject[] = [
     id: "fsre",
     path: "/fsre",
     element: <FeishuRedirect />,
+  },
+  {
+    id: "qqre",
+    path: "/qqre",
+    element: <QqRedirect />,
   },
   {
     id: "home",
