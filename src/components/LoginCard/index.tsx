@@ -7,7 +7,7 @@ function LoginCard(props: any) {
     window.parent.location.href =
       "https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=102035754&redirect_uri=https%3A%2F%2Fgoodnight2022.sast.fun%2Fqqre";
     window.location.href =
-      "https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=102035754&redirect_uri=https%3A%2F%2Fgoodnight2022.sast.fun%2Fqqloginredirect";
+      "https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=102035754&redirect_uri=https%3A%2F%2Fgoodnight2022.sast.fun%2Fqqre";
   };
   const feishuLogin = () => {
     //TODO 线上版本要更换链接

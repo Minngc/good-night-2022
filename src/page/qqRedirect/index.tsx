@@ -3,11 +3,13 @@ import { useLogin } from "../../hooks/login";
 
 function QqRedirect() {
   const [logined, uniID] = useLogin();
+  setTimeout(() => {
   if (logined) {
-    window.location.href = "https://goodnight2022.sast.fun";
-  }
-  if (window.location.href === "https://goodnight2022.sast.fun/qqre")
-    window.location.href = "https://goodnight2022.sast.fun";
+      window.location.href = "https://goodnight2022.sast.fun";
+    }
+  }, 300);
+  // if (window.location.href === "https://goodnight2022.sast.fun/qqre")
+  //   window.location.href = "https://goodnight2022.sast.fun";
   return (
     <div
       style={{

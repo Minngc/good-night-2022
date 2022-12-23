@@ -3,11 +3,14 @@ import { useLogin } from "../../hooks/login";
 
 function FeishuRedirect() {
   const [logined, uniID] = useLogin();
-  if (logined) {
-    window.location.href = "https://goodnight2022.sast.fun";
-  }
-  if (window.location.href === "https://goodnight2022.sast.fun/fsre")
-    window.location.href = "https://goodnight2022.sast.fun";
+  setTimeout(() => {
+
+    if (logined) {
+      window.location.href = "https://goodnight2022.sast.fun";
+    }
+  }, 300)
+  // if (window.location.href === "https://goodnight2022.sast.fun/fsre")
+  //   window.location.href = "https://goodnight2022.sast.fun";
   return (
     <div
       style={{
