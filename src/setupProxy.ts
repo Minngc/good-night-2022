@@ -1,6 +1,7 @@
-const { createProxyMiddleware } = require("http-proxy-middleware");
+import { createProxyMiddleware } from "http-proxy-middleware"
+// const { createProxyMiddleware } = ("http-proxy-middleware");
 
-module.exports = function (app) {
+module.exports = function (app:any) {
   console.log("work");
   app.use(
     createProxyMiddleware("/qqopenid", {
