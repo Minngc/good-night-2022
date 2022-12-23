@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Input from "../../../components/input";
 
 const LaunchEdit: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [wish, setWish] = useState<string>("");
-  useEffect(() => {
-    console.log("rerander");
-  });
   return (
     <>
       这里是发布愿望

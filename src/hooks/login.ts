@@ -34,32 +34,36 @@ export function useLogin() {
             client_id: "cli_a328c11558fc100c",
             client_secret: "VqwyrrKA40Kwm45j1lFNDdnza4tm3JOM",
             code: currentCode,
-            redirect_uri: 'https://goodnight2022.sast.fun/fsre'
+            redirect_uri: "https://goodnight2022.sast.fun/fsre",
           },
-        }).then((res) => {
-          console.log(res);
-          localStorage.setItem("gn2022-feishutoken", res.data.access_token);
-          axios({
-            method: "get",
-            url: "/feishu/userinfo",
-            headers: {
-              Authorization: `Bearer ${res.data.access_token}`,
-            },
-          }).then((res) => {
+        })
+          .then((res) => {
             console.log(res);
-            localStorage.setItem("gn2022-uniID",res.data.union_id)
-            setLogined(true);
-            setUniID(res.data.union_id);
-          }).catch(e=>{
-            console.log(e)
-            localStorage.clear()
-            window.location.reload()
+            localStorage.setItem("gn2022-feishutoken", res.data.access_token);
+            axios({
+              method: "get",
+              url: "/feishu/userinfo",
+              headers: {
+                Authorization: `Bearer ${res.data.access_token}`,
+              },
+            })
+              .then((res) => {
+                console.log(res);
+                localStorage.setItem("gn2022-uniID", res.data.union_id);
+                setLogined(true);
+                setUniID(res.data.union_id);
+              })
+              .catch((e) => {
+                console.log(e);
+                localStorage.clear();
+                window.location.reload();
+              });
+          })
+          .catch((e) => {
+            console.log(e);
+            localStorage.clear();
+            window.location.reload();
           });
-        }).catch(e=>{
-          console.log(e)
-          localStorage.clear()
-          window.location.reload()
-        });
       }
       const urlHash = window.location.hash;
       // console.log(urlHash.split('&')[0].split('=')[1])

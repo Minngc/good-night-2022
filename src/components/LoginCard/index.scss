@@ -6,31 +6,31 @@
     height: 100%;
     width: 100%;
     .penguin {
-      width: 50vw
+      width: 50vw;
     }
     button {
-        background: #FBCA1F;
-        font-family: inherit;
-        padding: 0.6em 1.3em;
-        font-weight: 900;
-        font-size: 18px;
-        border: 3px solid black;
-        border-radius: 0.4em;
-        box-shadow: 0.1em 0.1em;
-        width: 180px;
-        margin-top: 0px;
-        color: black;
-       }
-       
-       button:hover {
-        transform: translate(-0.05em, -0.05em);
-        box-shadow: black 0.15em 0.15em;
-       }
-       
-       button:active {
-        transform: translate(0.05em, 0.05em);
-        box-shadow: black 0.05em 0.05em;
-       }
+      background: #fbca1f;
+      font-family: inherit;
+      padding: 0.6em 1.3em;
+      font-weight: 900;
+      font-size: 18px;
+      border: 3px solid black;
+      border-radius: 0.4em;
+      box-shadow: 0.1em 0.1em;
+      width: 180px;
+      margin-top: 0px;
+      color: black;
+    }
+
+    button:hover {
+      transform: translate(-0.05em, -0.05em);
+      box-shadow: black 0.15em 0.15em;
+    }
+
+    button:active {
+      transform: translate(0.05em, 0.05em);
+      box-shadow: black 0.05em 0.05em;
+    }
   }
 
   .container .box {
