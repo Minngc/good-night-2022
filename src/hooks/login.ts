@@ -19,6 +19,7 @@ export function useLogin() {
   }
   useEffect(() => {
     if (localStorage.getItem("gn2022-uniID") === null) {
+      setLogined(false);
       console.log(getQueryVariable("state"));
       if (getQueryVariable("state")) {
         const currentCode = getQueryVariable("code");
