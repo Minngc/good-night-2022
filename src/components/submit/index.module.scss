@@ -1,0 +1,14 @@
+.roundButton {
+  background-color: #fffaec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 27.5px;
+  border-radius: 50%;
+  width: 31px;
+  height: 54px;
+  font-size: 1.1rem;
+  gap: 4px;
+  cursor: pointer;
+}

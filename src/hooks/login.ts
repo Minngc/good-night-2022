@@ -3,8 +3,9 @@ import { data } from "jquery";
 import { useEffect, useState } from "react";
 
 export function useLogin() {
-  const [logined, setLogined] = useState<boolean>(false);
+  const [logined, setLogined] = useState<boolean>(true);
   const [uniID, setUniID] = useState<string | null>("");
+  //提取url中附带的参数
   function getQueryVariable(variable: string) {
     var query = window.location.search.substring(1);
     var vars = query.split("&");
@@ -17,11 +18,7 @@ export function useLogin() {
     return false;
   }
   useEffect(() => {
-    if (localStorage.getItem("gn2022-uniID") !== null) {
-      const currentID = localStorage.getItem("gn2022-uniID");
-      setLogined(true);
-      setUniID(currentID);
-    } else {
+    if (localStorage.getItem("gn2022-uniID") === null) {
       console.log(getQueryVariable("state"));
       if (getQueryVariable("state")) {
         const currentCode = getQueryVariable("code");
@@ -81,6 +78,10 @@ export function useLogin() {
           localStorage.setItem("gn2022-qqtoken", qqCurrentToken);
         });
       }
+    } else {
+      const currentID = localStorage.getItem("gn2022-uniID");
+      setLogined(true);
+      setUniID(currentID);
     }
   }, []);
   return [logined, uniID];

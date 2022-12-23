@@ -3,7 +3,7 @@ import style from "./index.module.scss";
 
 type cardConponentsProps<T> = {
   children: React.FC<T>;
-  aguments?: T;
+  arguments?: T;
   title?: string;
 };
 
@@ -15,7 +15,7 @@ function cardConponents<T>(props: cardConponentsProps<T>): React.FC {
       <>
         <div className={style.title}>{title ?? ""}</div>
         <div className={style["wish-card"]}>
-          <Children {...(props.aguments as T)} as T />
+          <Children {...(props.arguments as T)} as T />
         </div>
       </>
     );

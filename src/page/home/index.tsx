@@ -7,23 +7,26 @@ import sendWish from "../../assets/image/send-wish.png";
 import lookWish from "../../assets/image/look-wish.png";
 import about from "../../assets/image/about.png";
 import sastLogo from "../../assets/image/sastlogo.png";
+import LoginCard from "../../components/LoginCard";
+import { useLogin } from "../../hooks/login";
+import { useUserInfo } from "../../hooks/userInfo";
 
 const Home: React.FC = () => {
-  // const [logined, uniID] = useLogin();
-  // const [nickname, location] = useUserInfo();
-  // const quitLogin = () => {
-  //   localStorage.clear();
-  //   window.location.href = "https://goodnight2022.sast.fun/";
-  // };
+  const [logined, uniID] = useLogin();
+  const [nickname, location] = useUserInfo();
+  const quitLogin = () => {
+    localStorage.clear();
+    window.location.href = "https://goodnight2022.sast.fun/";
+  };
   return (
     <>
-      {/* {logined ? <></> : <LoginCard></LoginCard>}
+      {logined ? <></> : <LoginCard></LoginCard>}
         <div className="function-box">
           <span className="welcome-info">欢迎登机，{nickname}</span>
           <span className="quit" onClick={quitLogin}>
             退出登录 {">"}
           </span>
-        </div> */}
+        </div>
       <div className="logo-body">
         <img src={homeLogo} alt="logo" className="home-logo"></img>
       </div>

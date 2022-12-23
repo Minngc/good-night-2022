@@ -19,7 +19,7 @@ const Others: React.FC = () => {
   const OthersCard = cardConponents<OthersWishProps>({
     children: OthersWish,
     title: "看看愿望",
-    aguments: {
+    arguments: {
       wishes: wishes,
       name: name,
       time: time,

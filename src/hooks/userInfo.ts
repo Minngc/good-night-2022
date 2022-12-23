@@ -2,12 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export function useUserInfo() {
+  // console.log('useUserinfo init')
   const [nickname, setNickName] = useState("未知访客");
   //   const [figureUrl, setFigureUrl] = useState(
   //     "https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132"
   //   );
   const [location, setLocation] = useState("火星");
   useEffect(() => {
+    // console.log("here1");
     axios({
       method: "get",
       url: "/getlocation",
@@ -47,10 +49,11 @@ export function useUserInfo() {
         });
     }
     if (
-      localStorage.getItem("gn2022-qqopenid") !== null &&
-      localStorage.getItem("gn2022-qqtoken") !== null &&
+      localStorage.getItem("gn2022-qqopenid") === null ||
+      localStorage.getItem("gn2022-qqtoken") === null ||
       localStorage.getItem("gn2022-nickname") === null
     ) {
+      // console.log("here2");
       //   console.log(
       //     localStorage.getItem("gn2022-qqopenid"),
       //     localStorage.getItem("gn2022-qqtoken")
@@ -77,6 +80,14 @@ export function useUserInfo() {
             setLocation(userlocation);
             localStorage.setItem("gn2022-location", userlocation);
           }
+          // if (
+          //   res.data.msg ===
+          //   "client request's parameters are invalid, invalid openid"
+          // ) {
+          //   localStorage.clear();
+          //   if (window.location.href !== "https://goodnight2022.sast.fun/")
+          //     window.location.href = "https://goodnight2022.sast.fun";
+          // }
         })
         .catch((e) => {
           console.log(e);
@@ -88,6 +99,7 @@ export function useUserInfo() {
       localStorage.getItem("gn2022-nickname") !== null &&
       localStorage.getItem("gn2022-nickname") !== undefined
     )
+      // console.log('setnickname')
       setNickName(localStorage.getItem("gn2022-nickname") || "未知访客");
     if (
       localStorage.getItem("gn2022-location") !== null &&

@@ -1,16 +1,15 @@
 .title {
   position: absolute;
-  width: 44vw;
-  left: 27vw;
-  top: 14vh;
+  width: 200px;
+  height: 43px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 12vh;
 
-  font-size: 9.4vw;
-  line-height: 9.4vw;
-  /* identical to box height, or 73% */
+  font-size: 12vw;
 
-  display: flex;
-  align-items: center;
-  text-align: justify;
+  text-align: center;
   letter-spacing: 0.165em;
 
   color: #ffffff;
@@ -21,7 +20,7 @@
   width: 86vw;
   height: 58vh;
   left: 7vw;
-  top: 24vh;
+  top: 22vh;
 
   background: #fffaec;
   border-radius: 14px;

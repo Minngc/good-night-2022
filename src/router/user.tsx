@@ -15,7 +15,7 @@ const OthersPage = platformSwitch<{}>({ children: Others, url: "/others" });
 const AboutPage = platformSwitch<{}>({
   children: About,
   url: "/about",
-  style: { height: "920px" },
+  // style: { height: "920px" },
 });
 const LaunchEditPage = platformSwitch<{}>({
   children: LaunchEdit,
