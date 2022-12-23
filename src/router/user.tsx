@@ -2,13 +2,31 @@ import { Navigate, RouteObject } from "react-router-dom";
 import Home from "../page/home";
 import About from "../page/about";
 import NoMatch from "../page/error/noMatch";
-import Launch from "../page/launch";
 import LaunchSuccess from "../page/launch/launchSuccess";
 import Others from "../page/others";
 import LaunchEdit from "../page/launch/launchEdit";
 import FeishuRedirect from "../page/feishuRedirect";
 import QqRedirect from "../page/qqRedirect";
 
+import platformSwitch from "../higherOrderComponent/platformSwitch";
+
+const HomePage = platformSwitch<{}>({ children: Home, url: "/home" });
+const OthersPage = platformSwitch<{}>({ children: Others, url: "/others" });
+const AboutPage = platformSwitch<{}>({
+  children: About,
+  url: "/about",
+  style: { height: "920px" },
+});
+const LaunchEditPage = platformSwitch<{}>({
+  children: LaunchEdit,
+  url: "/launch/edit",
+});
+const NoMatchPage = platformSwitch<{}>({ children: NoMatch, url: "*" });
+
+const LaunchSuccessPage = platformSwitch<{}>({
+  children: LaunchSuccess,
+  url: "/launch/success",
+});
 
 const user: RouteObject[] = [
   {
@@ -29,39 +47,34 @@ const user: RouteObject[] = [
   {
     id: "home",
     path: "/home",
-    element: <Home />,
+    element: <HomePage />,
   },
   {
     id: "launch",
     path: "/launch",
-    element: <Launch/>,
+    element: <LaunchEditPage />,
     children: [
-      {
-        id: "launch edit",
-        path: "edit",
-        element: <LaunchEdit />,
-      },
       {
         id: "launch success",
         path: "success",
-        element: <LaunchSuccess />,
+        element: <LaunchSuccessPage />,
       },
     ],
   },
   {
     id: "about",
     path: "/about",
-    element: <About />,
+    element: <AboutPage />,
   },
   {
     id: "others",
     path: "/others",
-    element: <Others />,
+    element: <OthersPage />,
   },
   {
     id: "no match",
     path: "*",
-    element: <NoMatch />,
+    element: <NoMatchPage />,
   },
 ];
 

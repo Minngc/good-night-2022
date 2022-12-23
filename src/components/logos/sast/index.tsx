@@ -2,8 +2,8 @@ import React from "react";
 import sastlogo from "../../assets/image/sastlogo.png";
 
 type SASTLogoProps = {
-    className?:string;
-}
+  className?: string;
+};
 
 const SASTLogo: React.FC<SASTLogoProps> = (props) => {
   return (

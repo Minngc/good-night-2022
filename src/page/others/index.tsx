@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import cardConponents from "../../components/Card";
+import cardConponents from "../../higherOrderComponent/card";
 import style from "./index.module.scss";
 import OthersWish, { OthersWishProps } from "./othersWish";
 import BackIcon from "../../components/back";
@@ -49,19 +49,15 @@ const Others: React.FC = () => {
   }
   return (
     <>
-      <div className="page-body">
-        <div className="container">
-          <OthersCard />
-        </div>
-        <div className={style.back}>
-          <BackIcon to={"/home"} />
-        </div>
-        <div onClick={handleLike} className={style.like}>
-          <Like {...like} />
-        </div>
-        <div onClick={nextWish} className={style["next-wish"]}>
-          <NextWish />
-        </div>
+      <OthersCard />
+      <div className={style.back}>
+        <BackIcon to={"/home"} />
+      </div>
+      <div onClick={handleLike} className={style.like}>
+        <Like {...like} />
+      </div>
+      <div onClick={nextWish} className={style["next-wish"]}>
+        <NextWish />
       </div>
     </>
   );

@@ -1,0 +1,28 @@
+.title {
+  position: absolute;
+  width: 44vw;
+  left: 27vw;
+  top: 14vh;
+
+  font-size: 9.4vw;
+  line-height: 9.4vw;
+  /* identical to box height, or 73% */
+
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  letter-spacing: 0.165em;
+
+  color: #ffffff;
+}
+
+.wish-card {
+  position: absolute;
+  width: 86vw;
+  height: 58vh;
+  left: 7vw;
+  top: 24vh;
+
+  background: #fffaec;
+  border-radius: 14px;
+}

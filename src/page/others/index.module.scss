@@ -1,26 +1,25 @@
-$icon-position : 85.5vh;
+$icon-position: 85.5vh;
 
 .back {
-    position: absolute;
-    width: 76px;
-    height: 76px;
-    top: $icon-position;
-    left: 11vw;
-
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  top: $icon-position;
+  left: 11vw;
 }
 
 .like {
-    position: absolute;
-    width: 76px;
-    height: 76px;
-    top: $icon-position;
-    right: 11vw
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  top: $icon-position;
+  right: 11vw;
 }
 
 .next-wish {
-    position: absolute;
-    width: 76px;
-    height: 76px;
-    top: $icon-position;
-    left: 40vw;
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  top: $icon-position;
+  left: 40vw;
 }

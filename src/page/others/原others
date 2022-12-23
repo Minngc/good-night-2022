@@ -1,0 +1,11 @@
+// import React from "react";
+
+// import platformSwitch from "../../higherOrderComponent/platformSwitch";
+// import OthersConponents from "./othersConponents";
+
+// const Others: React.FC = () => {
+//     const OthersPage = platformSwitch<{}>({children:OthersConponents})
+//     return <OthersPage/>
+// }
+
+// export default Others;

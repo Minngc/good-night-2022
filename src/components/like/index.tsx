@@ -3,7 +3,7 @@ import like from "../../assets/image/like.png";
 // import liked from "../../assets/image/liked.png"
 import back from "../../assets/image/like.png";
 
-export type LikeProps = LikedProps | NoLikedProps
+export type LikeProps = LikedProps | NoLikedProps;
 /*{
      liked: boolean;
      number: number;
@@ -16,7 +16,7 @@ type LikedProps = {
 
 type NoLikedProps = {
   liked: false;
-  number:undefined;
+  number: undefined;
 };
 
 const Like: React.FC<LikeProps> = (props) => {

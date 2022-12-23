@@ -84,9 +84,15 @@ export function useUserInfo() {
           window.location.href = "https://goodnight2022.sast.fun/";
         });
     }
-    if (localStorage.getItem("gn2022-nickname") !== null&&localStorage.getItem("gn2022-nickname") !== undefined)
+    if (
+      localStorage.getItem("gn2022-nickname") !== null &&
+      localStorage.getItem("gn2022-nickname") !== undefined
+    )
       setNickName(localStorage.getItem("gn2022-nickname") || "未知访客");
-    if (localStorage.getItem("gn2022-location") !== null&&localStorage.getItem("gn2022-location") !== undefined)
+    if (
+      localStorage.getItem("gn2022-location") !== null &&
+      localStorage.getItem("gn2022-location") !== undefined
+    )
       setLocation(localStorage.getItem("gn2022-location") || "火星");
   }, []);
 
