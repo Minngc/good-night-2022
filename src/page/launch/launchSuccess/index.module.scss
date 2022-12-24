@@ -1,0 +1,15 @@
+$icon-position: 83vh;
+.back {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  top: $icon-position;
+  left: 11vw;
+}
+.submit{
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  top: $icon-position;
+  right: 11vw;
+}

@@ -53,13 +53,11 @@ const user: RouteObject[] = [
     id: "launch",
     path: "/launch",
     element: <LaunchEditPage />,
-    children: [
-      {
-        id: "launch success",
-        path: "success",
-        element: <LaunchSuccessPage />,
-      },
-    ],
+  },
+  {
+    id: "launchState",
+    path: "/launch/success",
+    element: <LaunchSuccessPage />,
   },
   {
     id: "about",

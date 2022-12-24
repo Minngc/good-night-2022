@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Input from "../../../components/input";
 import LaunchEditCard, { launchCardEditProps } from "./launchEditCard";
 import cardConponents from "../../../higherOrderComponent/card";
-import { OthersWishProps } from "../../others/othersWish";
 import BackIcon from "../../../components/back";
 import style from './index.module.scss'
 import { useUserInfo } from "../../../hooks/userInfo";
 import Submit from "../../../components/submit";
+import { sentBless } from "../../../api/launch";
+import { useNavigate } from "react-router-dom";
 
 
 const LaunchEdit: React.FC = () => {
+  const navigate = useNavigate()
   const [name, setName] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [wish, setWish] = useState<string>("");
@@ -26,21 +27,38 @@ const LaunchEdit: React.FC = () => {
       setWish: setWish,
     },
   });
-  const handleOnClick = ()=>{
+  const handleOnClick = () => {
     // console.log('submit')
     const nameInput = document.getElementById('name') as HTMLInputElement
     const phoneNumberInput = document.getElementById('phoneNumber') as HTMLInputElement
     const wishInput = document.getElementById('wish') as HTMLTextAreaElement
+    const emailInput = document.getElementById('email') as HTMLInputElement
     const currentName = nameInput.value
     const currentPhoneNumber = phoneNumberInput.value
+    const currentEmail = emailInput.value
     const currentWish = wishInput.value.substring(3)
-    if(window.confirm('你确定要发送吗？记得检查下手机号是否正确哦，否则无法正常发送🤔️')){
-      console.log(currentName,currentPhoneNumber,currentWish)
+    console.log(currentName, currentPhoneNumber, currentWish)
+    if (nameInput.checkValidity() && phoneNumberInput.checkValidity() && emailInput.checkValidity()) {
+      sentBless(currentName, currentPhoneNumber, currentEmail, currentWish, location).then(res => {
+        navigate('/launch/success?state=success')
+      }).catch(e => {
+        navigate('/launch/success?state=error')
+      })
+    } else {
+      if (currentWish === '') {
+        alert('还没写愿望内容哦～')
+      } else if (!nameInput.checkValidity()) {
+        alert('填写的名字有问题哦')
+      } else if (!emailInput.checkValidity()) {
+        alert('填写的邮箱有问题哦')
+      } else if (!phoneNumberInput.checkValidity()) {
+        alert('填写的手机号码有问题哦')
+      }
     }
   }
-  useEffect(()=>{
+  useEffect(() => {
     setName(username)
-  },[username])
+  }, [username])
   return (
     <>
       <LaunchCard />

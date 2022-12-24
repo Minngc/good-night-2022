@@ -34,12 +34,12 @@ export default function platformSwitch<T>(
           >
             <div className="container">
               {logined ? <></> : <LoginCard></LoginCard>}
-              <div className="function-box">
+              {/* <div className="function-box">
                 <span className="welcome-info">欢迎登机，{nickname}</span>
                 <span className="quit" onClick={quitLogin}>
                   退出登录 {">"}
                 </span>
-              </div>
+              </div> */}
               <Children {...aguments} as T />
             </div>
           </div>

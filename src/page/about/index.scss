@@ -1,8 +1,8 @@
 .about-container {
-  position: absolute;
+  // position: absolute;
   width: 80vw;
-  left: 10vw;
-  top: 212px;
+  // left: 10vw;
+  // top: 212px;
 
   font-family: "PingFang SC";
   font-style: normal;
@@ -18,9 +18,30 @@
 }
 
 .about-back-logo {
-  position: relative;
+  // position: relative;
   width: 18.4vw;
   height: 18.4vw;
-  top: 83vh;
-  left: 10vw;
+  // top: 83vh;
+  // left: 10vw;
+}
+
+.about-content {
+  position: absolute;
+  width: 80vw;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 212px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.page-body .about-body {
+  position: relative;
+  z-index: 999;
+  height: 112vh;
+  width: 100%;
+  background: url("../../assets/image/about-background.png");
+  background-size: cover;
+  background-position: center top;
 }

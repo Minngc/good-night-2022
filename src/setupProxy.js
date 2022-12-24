@@ -30,6 +30,13 @@ module.exports = function (app) {
       pathRewrite: {
         "^/feishu": "",
       },
+    }),
+    createProxyMiddleware("/apis", {
+      target: "https://mock.apifox.cn/m1/2119088-0-default",
+      changeOrigin: true,
+      pathRewrite: {
+        "^/apis": "",
+      },
     })
   );
 };

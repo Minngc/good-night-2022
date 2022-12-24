@@ -18,11 +18,15 @@ export function useLogin() {
     return false;
   }
   useEffect(() => {
+    //如果拿不到uniID的话说明没有登录
     if (localStorage.getItem("gn2022-uniID") === null) {
       setLogined(false);
       console.log(getQueryVariable("state"));
+      //如果有state参数的说明是用
       if (getQueryVariable("state")) {
+        console.log('feishuLoging')
         const currentCode = getQueryVariable("code");
+        console.log(currentCode)
         axios({
           method: "post",
           url: "/feishu/token",
@@ -32,7 +36,7 @@ export function useLogin() {
             client_id: "cli_a328c11558fc100c",
             client_secret: "VqwyrrKA40Kwm45j1lFNDdnza4tm3JOM",
             code: currentCode,
-            redirect_uri: "https://goodnight2022.sast.fun/fsre",
+            redirect_uri: window.location.origin+'/fsre',
           },
         })
           .then((res) => {
@@ -48,7 +52,7 @@ export function useLogin() {
               .then((res) => {
                 console.log(res);
                 localStorage.setItem("gn2022-uniID", res.data.union_id);
-                setLogined(true);
+                // setLogined(true);
                 setUniID(res.data.union_id);
               })
               .catch((e) => {

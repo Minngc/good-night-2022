@@ -49,9 +49,8 @@ export function useUserInfo() {
         });
     }
     if (
-      localStorage.getItem("gn2022-qqopenid") === null ||
-      localStorage.getItem("gn2022-qqtoken") === null ||
-      localStorage.getItem("gn2022-nickname") === null
+      localStorage.getItem("gn2022-qqtoken") !== null &&
+      (localStorage.getItem("gn2022-nickname") === null)
     ) {
       // console.log("here2");
       //   console.log(
@@ -80,19 +79,19 @@ export function useUserInfo() {
             setLocation(userlocation);
             localStorage.setItem("gn2022-location", userlocation);
           }
-          // if (
-          //   res.data.msg ===
-          //   "client request's parameters are invalid, invalid openid"
-          // ) {
-          //   localStorage.clear();
-          //   if (window.location.href !== "https://goodnight2022.sast.fun/")
-          //     window.location.href = "https://goodnight2022.sast.fun";
-          // }
+          if (
+            res.data.msg ===
+            "client request's parameters are invalid, invalid openid"
+          ) {
+            localStorage.clear();
+            if (window.location.href !== window.location.origin)
+              window.location.href = window.location.origin;
+          }
         })
         .catch((e) => {
           console.log(e);
           localStorage.clear();
-          window.location.href = "https://goodnight2022.sast.fun/";
+          window.location.href = window.location.origin;
         });
     }
     if (

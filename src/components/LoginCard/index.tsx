@@ -11,9 +11,10 @@ function LoginCard(props: any) {
   };
   const feishuLogin = () => {
     //TODO 线上版本要更换链接
-    window.location.href =
-      "https://passport.feishu.cn/suite/passport/oauth/authorize?client_id=cli_a328c11558fc100c&redirect_uri=https%3A%2F%2Fgoodnight2022.sast.fun%2Ffsre&response_type=code&state=feishuLogin";
-    // window.location.href = 'https://passport.feishu.cn/suite/passport/oauth/authorize?client_id=cli_a328c11558fc100c&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fhome&response_type=code&state=feishuLogin'
+    // window.location.href =
+      // "https://passport.feishu.cn/suite/passport/oauth/authorize?client_id=cli_a328c11558fc100c&redirect_uri=https%3A%2F%2Fgoodnight2022.sast.fun%2Ffsre&response_type=code&state=feishuLogin";
+    window.location.href = 'https://passport.feishu.cn/suite/passport/oauth/authorize?client_id=cli_a328c11558fc100c&redirect_uri=http%3A%2F%2F192.168.31.103%3A3000%2Ffsre&response_type=code&state=feishuLogin'
+    // window.location.href = 'https://passport.feishu.cn/suite/passport/oauth/authorize?client_id=cli_a328c11558fc100c&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Ffsre&response_type=code&state=feishuLogin'
   };
   return (
     <div className="loginBox">
