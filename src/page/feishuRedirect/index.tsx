@@ -5,7 +5,7 @@ function FeishuRedirect() {
   const [logined, uniID] = useLogin();
   setTimeout(() => {
     if (logined) {
-      window.location.href = 'http://192.168.31.103:3000';
+      window.location.href = 'https://goodnight2022.sast.fun';
     }
   }, 1000)
   // if (window.location.href === "https://goodnight2022.sast.fun/fsre")
