@@ -1,0 +1,17 @@
+.roundButton {
+    border-style: solid;
+    border-color: #fffaec;
+    border-width: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 23.5px;
+    border-radius: 50%;
+    width: 31px;
+    height: 54px;
+    font-size: 1.1rem;
+    gap: 6px;
+    cursor: pointer;
+    color: #fffaec;
+  }

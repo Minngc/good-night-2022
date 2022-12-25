@@ -33,7 +33,7 @@ module.exports = function (app:any) {
       },
     }),
     createProxyMiddleware("/apis", {
-      target: "https://mock.apifox.cn/m1/2119088-0-default",
+      target: "https://sast.furcode.cn/goodnight2022/api",
       changeOrigin: true,
       pathRewrite: {
         "^/apis": "",

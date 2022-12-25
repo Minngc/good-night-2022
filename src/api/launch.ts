@@ -1,11 +1,13 @@
 import axios from "axios";
 
 export function getPreviousBless() {
-  let uid = localStorage.getItem("gn2022-uniID");
+    const formData = new FormData()
+  let uid = localStorage.getItem("gn2022-uniID")||'';
+  formData.append('uid',uid)
   return axios({
     method: "post",
     url: "/apis/getBlessing",
-    data: { uid: uid },
+    data: formData
   });
 }
 

@@ -5,8 +5,9 @@ import BackIcon from "../../../components/back";
 import style from './index.module.scss'
 import { useUserInfo } from "../../../hooks/userInfo";
 import Submit from "../../../components/submit";
-import { sentBless } from "../../../api/launch";
+import { getPreviousBless, sentBless } from "../../../api/launch";
 import { useNavigate } from "react-router-dom";
+import { throttle } from "../../../utils";
 
 
 const LaunchEdit: React.FC = () => {
@@ -14,6 +15,7 @@ const LaunchEdit: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [wish, setWish] = useState<string>("");
+  const [email,setEmail] = useState('')
   const [username, location] = useUserInfo()
   const LaunchCard = cardConponents<launchCardEditProps>({
     children: LaunchEditCard,
@@ -22,6 +24,7 @@ const LaunchEdit: React.FC = () => {
       wish: wish,
       name: name,
       phoneNumber: phoneNumber,
+      email: email,
       setName: setName,
       setPhoneNumber: setPhoneNumber,
       setWish: setWish,
@@ -40,8 +43,14 @@ const LaunchEdit: React.FC = () => {
     console.log(currentName, currentPhoneNumber, currentWish)
     if (nameInput.checkValidity() && phoneNumberInput.checkValidity() && emailInput.checkValidity()) {
       sentBless(currentName, currentPhoneNumber, currentEmail, currentWish, location).then(res => {
-        navigate('/launch/success?state=success')
+        console.log(res)
+        if(res.data.data==='OK'){
+          navigate('/launch/success?state=success')
+        }else{
+          navigate('/launch/success?state=error')
+        }
       }).catch(e => {
+        console.log(e)
         navigate('/launch/success?state=error')
       })
     } else {
@@ -58,6 +67,15 @@ const LaunchEdit: React.FC = () => {
   }
   useEffect(() => {
     setName(username)
+    getPreviousBless().then(res=>{
+      console.log(res)
+      if(res.data.data.isSent===true){
+        setName(res.data.data.content.username)
+        setPhoneNumber(res.data.data.content.phone)
+        setWish(res.data.data.content.blessing)
+        setEmail(res.data.data.content.mail)
+      }
+    })
   }, [username])
   return (
     <>
@@ -66,7 +84,7 @@ const LaunchEdit: React.FC = () => {
         <BackIcon to={"/home"} />
       </div>
       <div className={style.submit}>
-        <Submit onClick={handleOnClick} />
+        <Submit onClick={throttle(handleOnClick)} />
       </div>
     </>
   );
