@@ -20,13 +20,13 @@ const Home: React.FC = () => {
   };
   return (
     <>
-      {logined ? <></> : <LoginCard></LoginCard>}
+      {/* {logined ? <></> : <LoginCard></LoginCard>}
         <div className="function-box">
           <span className="welcome-info">欢迎登机，{nickname}</span>
           <span className="quit" onClick={quitLogin}>
             退出登录 {">"}
           </span>
-        </div>
+        </div> */}
       <div className="logo-body">
         <img src={homeLogo} alt="logo" className="home-logo"></img>
       </div>
