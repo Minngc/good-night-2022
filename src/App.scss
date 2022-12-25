@@ -134,3 +134,14 @@ div.loaded div.spinner-box {
     transform: translateY(0);
   }
 }
+*{
+  animation: comein .5 ease-in;
+}
+@keyframes comein {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 100%;
+  }
+}

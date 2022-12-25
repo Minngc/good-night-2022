@@ -19,6 +19,8 @@ const Others: React.FC = () => {
     number: 0,
   });
   const [bid,setBid] = useState<number>()
+  const [loading, setLoading] = useState(true)
+  const [location, setLocation] = useState<string>('火星')
   const OthersCard = cardConponents<OthersWishProps>({
     children: OthersWish,
     title: "看看愿望",
@@ -26,6 +28,8 @@ const Others: React.FC = () => {
       wishes: wishes,
       name: name,
       time: time,
+      location: location,
+      loading: loading
     },
   });
 
@@ -53,6 +57,7 @@ const Others: React.FC = () => {
   }, [name, wishes, time]);
 
   function nextWish() {
+    setLoading(true)
     getRandomBless().then((res)=>{
       console.log(res)
       if(res.data.success===true){
@@ -61,6 +66,8 @@ const Others: React.FC = () => {
         setTime(formatDateTimeForHMSS(res.data.data.date))
         setLike({liked:res.data.data.isLiked,number:res.data.data.like})
         setBid(res.data.data.id)
+        setLocation(res.data.data.location)
+        setLoading(false)
       }
     })
     // // 发送请求

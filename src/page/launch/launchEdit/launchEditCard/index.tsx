@@ -27,6 +27,9 @@ const LaunchEditCard: React.FC<launchCardEditProps> = (props) => {
     }
     const handlePhoneNumberChange = (e: any) => {
     }
+    useEffect(()=>{
+        setTextLength(props.wish.length)
+    },[])
     return (
         <>
             <div className={style.inputBody}>
