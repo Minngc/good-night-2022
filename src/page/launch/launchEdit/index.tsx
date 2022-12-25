@@ -12,26 +12,22 @@ import { throttle } from "../../../utils";
 
 const LaunchEdit: React.FC = () => {
   const navigate = useNavigate()
-  const [name, setName] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useState<string>("");
-  const [wish, setWish] = useState<string>("");
-  const [email,setEmail] = useState('')
+  // const [name, setName] = useState<string>("");
+  // const [phoneNumber, setPhoneNumber] = useState<string>("");
+  // const [wish, setWish] = useState<string>("");
+  // const [email,setEmail] = useState('')
   const [username, location] = useUserInfo()
   const LaunchCard = cardConponents<launchCardEditProps>({
     children: LaunchEditCard,
     title: "发射愿望",
     arguments: {
-      wish: wish,
-      name: name,
-      phoneNumber: phoneNumber,
-      email: email,
-      setName: setName,
-      setPhoneNumber: setPhoneNumber,
-      setWish: setWish,
+      name: username,
     },
   });
   const handleOnClick = () => {
     // console.log('submit')
+    const regEmail = /^([a-zA-Z\d][\w-]{2,})@(\w{2,})\.([a-z]{2,})(\.[a-z]{2,})?$/
+    const regNumber = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/
     const nameInput = document.getElementById('name') as HTMLInputElement
     const phoneNumberInput = document.getElementById('phoneNumber') as HTMLInputElement
     const wishInput = document.getElementById('wish') as HTMLTextAreaElement
@@ -41,7 +37,7 @@ const LaunchEdit: React.FC = () => {
     const currentEmail = emailInput.value
     const currentWish = wishInput.value.substring(3)
     console.log(currentName, currentPhoneNumber, currentWish)
-    if (nameInput.checkValidity() && phoneNumberInput.checkValidity() && emailInput.checkValidity()) {
+    if (currentName !== "" && regNumber.test(currentPhoneNumber) && regEmail.test(currentEmail) && currentWish !== "") {
       sentBless(currentName, currentPhoneNumber, currentEmail, currentWish, location).then(res => {
         console.log(res)
         if(res.data.data==='OK'){
@@ -54,29 +50,17 @@ const LaunchEdit: React.FC = () => {
         navigate('/launch/success?state=error')
       })
     } else {
-      if (currentWish === '') {
+      if (currentWish === "") {
         alert('还没写愿望内容哦～')
-      } else if (!nameInput.checkValidity()) {
+      } else if (currentName === "") {
         alert('填写的名字有问题哦')
-      } else if (!emailInput.checkValidity()) {
+      } else if (!regEmail.test(currentEmail)) {
         alert('填写的邮箱有问题哦')
-      } else if (!phoneNumberInput.checkValidity()) {
+      } else if (!regNumber.test(currentPhoneNumber)) {
         alert('填写的手机号码有问题哦')
       }
     }
   }
-  useEffect(() => {
-    setName(username)
-    getPreviousBless().then(res=>{
-      console.log(res)
-      if(res.data.data.isSent===true){
-        setName(res.data.data.content.username)
-        setPhoneNumber(res.data.data.content.phone)
-        setWish(res.data.data.content.blessing)
-        setEmail(res.data.data.content.mail)
-      }
-    })
-  }, [username])
   return (
     <>
       <LaunchCard />
