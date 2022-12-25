@@ -6,7 +6,7 @@
   gap: 1.8vh;
 }
 .inputBox {
-  z-index: 999;
+  z-index: 10;
   display: flex;
   font-size: 1.4rem;
   width: 100%;
@@ -27,7 +27,7 @@
 }
 
 .info{
-  z-index: 999;
+  z-index: 10;
   display: flex;
   font-size: 1.4rem;
   width: 100%;

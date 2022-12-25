@@ -14,5 +14,14 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      var ipHandle = function (data) {
+        console.log(data);
+        if (data.message === "Success" && data.result.ip !== "106.52.215.130") {
+          // setLocation(data.result.ad_info.province);
+          localStorage.setItem("gn2022-location", data.result.ad_info.province);
+        }
+      };
+    </script>
   </body>
 </html>

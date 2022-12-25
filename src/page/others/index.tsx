@@ -18,7 +18,7 @@ const Others: React.FC = () => {
     liked: false,
     number: 0,
   });
-  const [bid,setBid] = useState<number>()
+  const [bid, setBid] = useState<number>()
   const [loading, setLoading] = useState(true)
   const [location, setLocation] = useState<string>('火星')
   const OthersCard = cardConponents<OthersWishProps>({
@@ -35,22 +35,22 @@ const Others: React.FC = () => {
 
   function handleLike() {
     if (like.liked) {
-      likeBless(bid).then((res)=>{
+      likeBless(bid).then((res) => {
         console.log(res)
       })
-      setLike({ liked: false, number: like.number });
+      setLike({ liked: false, number: like.number - 1 });
     } else {
       // 做请求 然后设置 like
-      likeBless(bid).then((res)=>{
+      likeBless(bid).then((res) => {
         console.log(res)
       })
-      setLike({ liked: true, number: like.number+1 });
+      setLike({ liked: true, number: like.number + 1 });
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     nextWish()
-  },[])
+  }, [])
 
   useEffect(() => {
     // 如果接口有差异就在这里切换like
@@ -58,16 +58,18 @@ const Others: React.FC = () => {
 
   function nextWish() {
     setLoading(true)
-    getRandomBless().then((res)=>{
+    getRandomBless().then((res) => {
       console.log(res)
-      if(res.data.success===true){
+      if (res.data.success === true) {
         setName(res.data.data.username)
-        setWishes('你好，'+res.data.data.blessing+'晚安。')
+        setWishes('你好，' + res.data.data.blessing + '晚安。')
         setTime(formatDateTimeForHMSS(res.data.data.date))
-        setLike({liked:res.data.data.isLiked,number:res.data.data.like})
+        setLike({ liked: res.data.data.isLiked, number: res.data.data.like })
         setBid(res.data.data.id)
         setLocation(res.data.data.location)
-        setLoading(false)
+        setTimeout(() => {
+          setLoading(false)
+        }, 1000);
       }
     })
     // // 发送请求

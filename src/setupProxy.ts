@@ -19,7 +19,7 @@ module.exports = function (app:any) {
       },
     }),
     createProxyMiddleware("/getlocation", {
-      target: "http://whois.pconline.com.cn/ip.jsp",
+      target: "https://apis.map.qq.com/ws/location/v1/ip",
       changeOrigin: true,
       pathRewrite: {
         "^/getlocation": "",

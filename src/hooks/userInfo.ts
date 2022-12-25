@@ -10,18 +10,46 @@ export function useUserInfo() {
   const [location, setLocation] = useState("火星");
   useEffect(() => {
     // console.log("here1");
-    axios({
-      method: "get",
-      url: "/getlocation",
-    }).then((res) => {
-      const returnLocation = res.data;
-      //   console.log(returnLocation.toString().substring(2,4));
-      setLocation(returnLocation.toString().substring(2, 4));
-      localStorage.setItem(
-        "gn2022-location",
-        returnLocation.toString().substring(2, 4)
-      );
-    });
+    if (
+      localStorage.getItem("gn2022-location") === null ||
+      localStorage.getItem("gn2022-location") === "undefined"
+    ) {
+      // axios({
+      //   method: "get",
+      //   url: "/getlocation",
+      //   params:{key: '4KMBZ-75PEX-ETL4Y-T2LMK-N6IK3-SDBBA'}
+      // }).then((res) => {
+      //   console.log(res)
+      //   const returnLocation = res.data;
+      //   //   console.log(returnLocation.province.length);
+      //   // if(returnLocation.province.length!==0){
+      //   //   setLocation(returnLocation.province);
+      //   //   localStorage.setItem(
+      //   //     "gn2022-location",
+      //   //     returnLocation.province
+      //   //   );
+      //   // }
+      //   if(data.message==='Success'&&data.result.ip!=='106.52.215.130'){
+      //     setLocation(data.result.ad_info.province);
+      //     localStorage.setItem(
+      //       "gn2022-location",
+      //       data.result.ad_info.province
+      //     );
+      //   }
+      // });
+      // jsonp回调函数
+      var ipHandle = function (data:any) {
+        console.log(data)
+      };
+      // 提供jsonp服务的url地址
+      var url =
+        "https://apis.map.qq.com/ws/location/v1/ip?key=4KMBZ-75PEX-ETL4Y-T2LMK-N6IK3-SDBBA&output=jsonp&callback=ipHandle";
+      // 创建script标签，设置其属性
+      var script = document.createElement("script");
+      script.setAttribute("src", url);
+      // 把script标签加入head，此时调用开始
+      document.getElementsByTagName("head")[0].appendChild(script);
+    }
     if (
       localStorage.getItem("gn2022-feishutoken") !== null &&
       localStorage.getItem("gn2022-nickname") === null
@@ -36,7 +64,7 @@ export function useUserInfo() {
         .then((res) => {
           localStorage.removeItem("gn2022-qqopenid");
           localStorage.removeItem("gn2022-qqtoken");
-          // console.log(res.data.name);
+          console.log(res);
           setNickName(res.data.name);
           localStorage.setItem("gn2022-nickname", res.data.name);
           if (window.location.href !== "https://goodnight2022.sast.fun/home")
@@ -50,7 +78,7 @@ export function useUserInfo() {
     }
     if (
       localStorage.getItem("gn2022-qqtoken") !== null &&
-      (localStorage.getItem("gn2022-nickname") === null)
+      localStorage.getItem("gn2022-nickname") === null
     ) {
       // console.log("here2");
       //   console.log(
@@ -74,10 +102,6 @@ export function useUserInfo() {
           if (username !== "" && username !== undefined) {
             setNickName(username);
             localStorage.setItem("gn2022-nickname", username);
-          }
-          if (userlocation !== "" && userlocation !== undefined) {
-            setLocation(userlocation);
-            localStorage.setItem("gn2022-location", userlocation);
           }
           if (
             res.data.msg ===

@@ -27,7 +27,7 @@ const App: React.FC = () => {
   window.addEventListener("load", loaded, false);
   setTimeout(() => {
     loaded();
-  }, 5000);
+  }, 10000);
   return (
     <>
       <div id="loading-box">
