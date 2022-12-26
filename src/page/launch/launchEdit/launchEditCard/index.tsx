@@ -40,9 +40,6 @@ const LaunchEditCard: React.FC<launchCardEditProps> = (props) => {
     setTextLength(wish.length);
   }, [wish]);
   useEffect(() => {
-    console.log(name, wish, phoneNumber, email);
-  });
-  useEffect(() => {
     getPreviousBless().then((res) => {
       console.log(res);
       if (res.data.data.isSent === true) {
