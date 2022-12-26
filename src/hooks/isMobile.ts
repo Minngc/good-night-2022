@@ -16,10 +16,6 @@ function useIsMobile() {
       window.addEventListener("resize", handleResize);
     };
   }, []);
-  useEffect(() => {
-    console.log(window.innerWidth);
-    console.log(isMobile);
-  });
   return isMobile;
 }
 
