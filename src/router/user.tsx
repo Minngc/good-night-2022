@@ -19,7 +19,7 @@ const AboutPage = platformSwitch<{}>({
 });
 const LaunchEditPage = platformSwitch<{}>({
   children: LaunchEdit,
-  url: "/launch/edit",
+  url: "/launch",
 });
 const NoMatchPage = platformSwitch<{}>({ children: NoMatch, url: "*" });
 

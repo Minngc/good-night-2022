@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
 function useIsMobile() {
-  const [isMobile, SetIsMoble] = useState<boolean>(true);
-  const [innerWidth, setInnerWidth] = useState<number>(window.innerWidth);
-  const [innerHeight, setInnerHeight] = useState<number>(window.innerHeight);
+  const [isMobile, setIsMoble] = useState<boolean>(true);
   function handleResize() {
-    setInnerWidth(window.innerWidth);
-    setInnerHeight(window.innerHeight);
+    if (window.innerWidth > 500) {
+      setIsMoble(false);
+    }
+    if (window.innerWidth <= 500) {
+      setIsMoble(true);
+    }
   }
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -15,10 +17,9 @@ function useIsMobile() {
     };
   }, []);
   useEffect(() => {
-    if (window.innerWidth > 500) {
-      SetIsMoble(false);
-    } else SetIsMoble(true);
-  }, [isMobile, innerHeight, innerWidth]);
+    console.log(window.innerWidth);
+    console.log(isMobile);
+  });
   return isMobile;
 }
 
